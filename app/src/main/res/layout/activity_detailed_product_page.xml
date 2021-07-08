@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".DetailedProductPageActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/toolbar">
+
+
+        <ImageButton
+            android:id="@+id/cancel_button"
+            android:layout_width="26dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="10dp"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_back_arrow" />
+
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="633dp"
+        android:background="#FAF9FAF4">
+
+        <!--the only child layout in the scroll view706-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <!-- contains name, price and ratings-->
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="wrap_content"
+                android:layout_height="278dp"
+                android:background="@color/white"
+                app:iss_error_image="@drawable/background_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/platform_text_view"
+                    android:layout_width="82dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:padding="5dp"
+                    android:text="Lazada"
+                    android:textColor="#E64848"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/item_name_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Kitkat gold ice cream nice nice nice haev aa goo d nice hello ehere is mt afriend lim"
+                    android:textColor="#171616"
+                    android:textSize="20sp" />
+
+                <!--contains prices and price tracking button-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/item_discountedPrice_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="5dp"
+                        android:text="RM4.80"
+                        android:textColor="#FA4848"
+                        android:textSize="23sp" />
+
+                    <TextView
+                        android:id="@+id/item_originalPrice_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_toEndOf="@+id/item_discountedPrice_text_view"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="RM20"
+                        android:textColor="#938E8E"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+
+                        android:id="@+id/price_track_button"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/unfilled_heart"
+                        android:scaleType="centerCrop" />
+
+
+                </RelativeLayout>
+
+                <!--contains ratingBar and location-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RatingBar
+                        android:id="@+id/ratingScore_rating_bar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="92dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:numStars="5"
+                        android:padding="5dp"
+                        android:rating="3.5"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/review_count_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_toEndOf="@+id/ratingScore_rating_bar"
+                        android:text="(123)"
+                        android:textSize="16sp"
+                        android:visibility="gone" />
+
+                    <TextView
+
+                        android:id="@+id/location_text_view"
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="9dp"
+                        android:ellipsize="end"
+                        android:maxWidth="140dp"
+                        android:maxLines="1"
+                        android:text="China"
+                        android:textAlignment="textEnd"
+                        android:textSize="18sp" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="#D5D5D5" />
+
+            </LinearLayout>
+
+            <!--variation card view-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/variation_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <!--contains all layout in the variation card view-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--contains relative layout and selected-variation cardview-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--contains title variation and the collpase button-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:padding="5dp"
+                                android:text="Variation"
+                                android:textColor="#171616"
+                                android:textSize="18sp" />
+
+                            <ImageButton
+
+                                android:id="@+id/variation_collapse_button"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginEnd="9dp"
+                                android:background="@drawable/down_arrow"
+                                android:scaleType="centerCrop" />
+
+
+                        </RelativeLayout>
+
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/selected_variation_card_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            app:cardBackgroundColor="@color/selected_variation"
+                            app:cardCornerRadius="4dp"
+                            app:cardElevation="0dp"
+                            app:strokeColor="#C1BCBC"
+
+                            app:strokeWidth="0.7dp">
+
+                            <TextView
+                                android:id="@+id/selected_variation_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="8dp"
+                                android:paddingTop="4dp"
+                                android:paddingRight="8dp"
+                                android:paddingBottom="4dp"
+                                android:text="1500ml"
+                                android:textSize="15sp">
+
+                            </TextView>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp" />
+
+
+                    </LinearLayout>
+
+
+                    <!--contains expandable variation layout-->
+                    <LinearLayout
+                        android:id="@+id/variation_expandable_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!--                        <RelativeLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginBottom="5dp">-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/variation_discountedPrice_text_view"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_alignParentStart="true"-->
+                        <!--                                android:layout_alignParentTop="true"-->
+                        <!--                                android:layout_marginStart="0dp"-->
+                        <!--                                android:layout_marginTop="0dp"-->
+                        <!--                                android:padding="5dp"-->
+                        <!--                                android:text="RM4.80"-->
+                        <!--                                android:textColor="#FA4848"-->
+                        <!--                                android:textSize="23sp" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/variation_originalPrice_text_view"-->
+                        <!--                                android:layout_width="62dp"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_alignParentTop="true"-->
+                        <!--                                android:layout_marginStart="2dp"-->
+                        <!--                                android:layout_marginTop="8dp"-->
+                        <!--                                android:layout_toEndOf="@+id/variation_discountedPrice_text_view"-->
+                        <!--                                android:gravity="center"-->
+                        <!--                                android:padding="2dp"-->
+                        <!--                                android:text="RM20"-->
+                        <!--                                android:textColor="#938E8E"-->
+                        <!--                                android:textSize="18sp" />-->
+                        <!--                        </RelativeLayout>-->
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/variation_list_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                            tools:listitem="@layout/variation_list_card_view">
+
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- description card view-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/description_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--contains title description and the collpase button-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:padding="5dp"
+                            android:text="Description"
+                            android:textColor="#171616"
+                            android:textSize="18sp" />
+
+                        <ImageButton
+
+                            android:id="@+id/desc_collapse_button"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="9dp"
+                            android:background="@drawable/down_arrow"
+                            android:scaleType="centerCrop" />
+
+
+                    </RelativeLayout>
+
+                    <!--contains expandable description layout-->
+                    <LinearLayout
+                        android:id="@+id/item_description_expandable_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/item_description_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Kitkat gold ice cream nice nice nice haev aa goo d nice hello ehere is mt afriend lim"
+                            android:textColor="#938E8E"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <!--review sentiment score card view-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/review_sentiment_score_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--contains title review sentiment score and the collpase button-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:padding="5dp"
+                            android:text="Review Sentiment Score"
+                            android:textColor="#171616"
+                            android:textSize="18sp" />
+
+                        <ImageButton
+
+                            android:id="@+id/sentiment_score_collapse_button"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="9dp"
+                            android:background="@drawable/up_arrow"
+                            android:scaleType="centerCrop" />
+
+
+                    </RelativeLayout>
+
+                    <!--contains progress bar layout-->
+                    <LinearLayout
+                        android:id="@+id/review_sentiment_score_progress_bar_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ProgressBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="13dp">
+
+                        </ProgressBar>
+
+                    </LinearLayout>
+
+                    <!--contains expandable sentiment score layout-->
+                    <LinearLayout
+                        android:id="@+id/review_sentiment_score_expandable_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/review_sentiment_score_box"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="9dp"
+                                android:layout_marginTop="13dp"
+                                android:layout_marginBottom="1dp"
+                                app:cardBackgroundColor="@color/negative_sentiment_score"
+                                app:cardElevation="0dp">
+
+                                <TextView
+                                    android:id="@+id/sentiment_score_text_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="4.2"
+                                    android:textColor="@color/white"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold">
+
+                                </TextView>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="259dp"
+                                android:text="/5.0"
+                                android:textColor="@color/black"
+                                android:textSize="22sp">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/based_on_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="167dp"
+                                android:layout_marginTop="25dp"
+                                android:text="Based on"
+                                android:textSize="15sp">
+
+                            </TextView>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="42dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="148dp"
+                                android:layout_marginTop="16dp"
+                                android:background="#D5D5D5" />
+
+                            <TextView
+                                android:id="@+id/total_reviews_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="22dp"
+                                android:layout_toEndOf="@+id/based_on_text_view"
+                                android:text="5"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="italic">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/review_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_toEndOf="@+id/total_reviews_text_view"
+                                android:text="review(s)"
+                                android:textSize="15sp">
+
+                            </TextView>
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp" />
+
+                    </LinearLayout>
+
+                    <!--contains no reviews message layout-->
+                    <LinearLayout
+                        android:id="@+id/no_reviews_message_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <View
+                            android:layout_width="150dp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="13dp"
+                            android:padding="5dp"
+                            android:text="No reviews."
+                            android:textSize="16sp"
+                            android:textStyle="italic" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!--positive review card view-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/positive_review_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--contains title positive review and the collpase button-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/positive_review_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:padding="5dp"
+                            android:text="Positive Reviews"
+                            android:textColor="#171616"
+                            android:textSize="18sp" />
+
+
+                        <TextView
+                            android:id="@+id/positive_review_count_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_toEndOf="@+id/positive_review_text_view"
+                            android:padding="5dp"
+                            android:text="(23)"
+                            android:textColor="@color/positive_sentiment_score"
+                            android:textSize="18sp" />
+
+                        <ImageButton
+
+                            android:id="@+id/positive_review_collapse_button"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="9dp"
+                            android:background="@drawable/down_arrow"
+                            android:scaleType="centerCrop" />
+
+
+                    </RelativeLayout>
+
+                    <!--contains expandable positive reviews layout-->
+                    <LinearLayout
+                        android:id="@+id/positive_review_expandable_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ListView
+                            android:id="@+id/positive_review_list_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="230dp"
+                            android:layout_weight="1"
+                            android:nestedScrollingEnabled="true">
+
+                        </ListView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <!--negative review card view-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/negative_review_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--contains title negative review and the collpase button-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/negative_review_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:padding="5dp"
+                            android:text="Negative Reviews"
+                            android:textColor="#171616"
+                            android:textSize="18sp" />
+
+
+                        <TextView
+                            android:id="@+id/negative_review_count_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_toEndOf="@+id/negative_review_text_view"
+                            android:padding="5dp"
+                            android:text="(23)"
+                            android:textColor="@color/negative_sentiment_score"
+                            android:textSize="18sp" />
+
+                        <ImageButton
+
+                            android:id="@+id/negative_review_collapse_button"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="9dp"
+                            android:background="@drawable/down_arrow"
+                            android:scaleType="centerCrop" />
+
+
+                    </RelativeLayout>
+
+                    <!--contains expandable negative reviews layout-->
+                    <LinearLayout
+                        android:id="@+id/negative_review_expandable_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ListView
+                            android:id="@+id/negative_review_list_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="230dp"
+                            android:layout_weight="1"
+                            android:nestedScrollingEnabled="true">
+
+                        </ListView>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="393dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="Oops...Something went wrong!\nPlease try again."
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+    <!--contains the tool bar-->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/toolbar"
+            android:padding="0dp">
+
+            <Button
+                android:id="@+id/toolbar_button1"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="220dp"
+                android:layout_height="54dp"
+                android:backgroundTint="@color/white"
+                android:text="Add to Compare List"
+                android:textColor="@color/black">
+            </Button>
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="54dp"
+                android:background="@color/black"
+                />
+
+            <Button
+                android:id="@+id/toolbar_button2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="170dp"
+                android:layout_height="54dp"
+                android:backgroundTint="@color/white"
+                android:text="Open in App"
+                android:textColor="@color/black">
+
+            </Button>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

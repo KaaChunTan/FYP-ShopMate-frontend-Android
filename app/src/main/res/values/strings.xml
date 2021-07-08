@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ShopMate</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="link_to_sign_up"><u>Don\'t have an account? Sign up</u></string>
+    <string name="link_to_login"><u>Have an account? Login</u></string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+</resources>
